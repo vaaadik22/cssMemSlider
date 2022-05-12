@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +8,46 @@
     <link rel="stylesheet" href="style.css">
     <title>CssMemSlider</title>
 </head>
+
 <body>
     <div class="wrapper">
         <div class="slider">
             <div class="slider-nav">
+                <label for="control1" class="slider-nav-item"></label>
+                <label for="control2" class="slider-nav-item"></label>
+                <label for="control3" class="slider-nav-item"></label>
+                <label for="control4" class="slider-nav-item"></label>
+                <label for="control5" class="slider-nav-item"></label>
+            </div>
                 <div class="slider-items">
-                    <div class="items">
-                        <img src="./assets/image/mem1.jpg" width="800px" alt="">
+                    <input type="radio" name="control" id="control1">
+                    <input type="radio" name="control" id="control2">
+                    <input type="radio" name="control" id="control3">
+                    <input type="radio" name="control" id="control4">
+                    <input type="radio" name="control" id="control5">
+                    <div class="items control1">
+                        <img src="./assets/image/mem1.jpg" alt="">
                         <p>Когда доволен собой!</p>
-                    </div> 
-                    <div class="items">
+                    </div>
+                    <div class="items control1">
                         <img src="./assets/image/mem2.jpg" alt="">
+                        <p>Этот мир не так уж и плох!</p>
                     </div>
-                    <div class="items">
+                    <div class="items control1">
                         <img src="./assets/image/mem3.jpg" alt="">
+                        <p>Зуб даю)</p>
                     </div>
-                    <div class="items">
+                    <div class="items control1">
                         <img src="./assets/image/mem4.jpg" alt="">
+                        <p>Егор Егор Егор Егор Егор!</p>
                     </div>
-                    <div class="items">
+                    <div class="items control1">
                         <img src="./assets/image/mem5.jpg" alt="">
+                        <p>Главное вовремя высунуть)</p>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </body>
+
 </html>
