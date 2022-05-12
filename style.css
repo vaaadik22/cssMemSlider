@@ -35,6 +35,7 @@ body{
 .slider-items .items{
     width: 20%;
     transition: 0.8s;
+    min-height: 724px;
 }
 
 .slider-items .items img {
@@ -52,17 +53,23 @@ P{
     padding: 30px 0 0 0 ;
     font-size: 3em;
     color: #fff;
-    transition: 0.9s;
 }
 
 .slider-items input{
-    position: absolute;
-    visibility: hidden;
+     position: absolute; 
+     visibility: hidden; 
 } 
+
+.slider-items input:active{
+    position: absolute; 
+    visibility: hidden;
+}
     
 .slider-nav{
+    display: block;
+    height: 30px;
     position: absolute;
-    bottom: 15px;
+    bottom: 45px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -72,10 +79,9 @@ P{
     width: 15px;
     height: 15px;
     margin: 5px;
-    border: 1px solid royalblue;
+    border: 2px solid royalblue;
     background-color: royalblue;
     border-radius: 15px;
-    cursor: pointer;
     transition: all 0.8s ease;
 }
 
@@ -84,9 +90,9 @@ P{
     border-color: royalblue !important;
 }
 
-/*.slider-nav .slider-nav-item:active{
+.slider-nav .slider-nav-item:active{
     background-color: #000;
-}*/
+}
 
 #control1:checked ~ .control1{
     margin-left: 0;
@@ -108,12 +114,59 @@ P{
     margin-left: -80%;
 }
 
+#control1 ~ .control1 > p
+{
+    display: none;
+}
 
-#control1:checked ~ .slider-nav label:nth-child(1),
-#control1:checked ~ .slider-nav label:nth-child(2),
-#control1:checked ~ .slider-nav label:nth-child(3),
-#control1:checked ~ .slider-nav label:nth-child(4),
-#control1:checked ~ .slider-nav label:nth-child(5){
+#control1:checked ~ .img1 > p,
+#control2:checked ~ .img2 > p,
+#control3:checked ~ .img3 > p,
+#control4:checked ~ .img4 > p,
+#control5:checked ~ .img5 > p{
+    display: block;
+    animation-duration: 0.9s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 50%;
+      width: 200%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+#active label{ 
+    cursor: pointer;
+	border-radius: 10px;
+	display: inline-block; 
+	background: royalblue;
+}
+
+#active label:hover{ 
+	background: #fff;
+    border-color: #fff;
+    cursor: pointer;
+}
+
+#active label:active{
+    background: rgb(138, 137, 137);
+}
+
+label{
+    
+}
+
+#control1:checked ~ #active label:nth-child(1),
+#control2:checked ~ #active label:nth-child(2),
+#control3:checked ~ #active label:nth-child(3),
+#control4:checked ~ #active label:nth-child(4),
+#control5:checked ~ #active label:nth-child(5){
     background: #000;
-    border-color: royalblue !important;
+    border-color: #fff;
 }
