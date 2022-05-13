@@ -1,28 +1,21 @@
 *{
-    margin: 0 auto;
     padding: 0;
-    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 body{
-    position: relative;
-    background-color: #000;
+    background: #000;
 }
 
 .wrapper{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 30px 0;
 }
 
 .slider{
-    position: relative;
     overflow: hidden;
     max-width: 1200px;
     height: auto;
+    display: flex;
 }
 
 .slider-items{
@@ -30,100 +23,104 @@ body{
     height: 100%;
     object-fit: cover;
     display: flex;
+    flex-direction: column;
 }
 
-.slider-items .items{
-    width: 20%;
-    transition: 0.8s;
-    min-height: 724px;
+.nav-items{
+    display: flex;
+    max-width: 20%;
+    margin: unset;
+    flex-direction: row-reverse;
+    padding: 30px 0 0 0;
 }
 
-.slider-items .items img {
-    max-width: 100%;
-    height: auto;
+.img-description{
+    width: 80%;
 }
 
-img{
-    width: 100%;
-    height: 100%;
-    border-radius: 7px;
+.img-container{
+    display: flex;
+    transition: all 0.8s ease;
 }
 
-P{  
-    padding: 30px 0 0 0 ;
-    font-size: 3em;
+.img-container > img{
+    max-width: 100vw;
+}
+
+input{
+    display: none;
+}
+
+.text{
+    display: flex;
+}
+
+p{
     color: #fff;
+    font-size: 2em;
+    display: none;
 }
 
-.slider-items input{
-     position: absolute; 
-     visibility: hidden; 
-} 
-
-.slider-items input:active{
-    position: absolute; 
-    visibility: hidden;
-}
-    
 .slider-nav{
-    display: block;
-    height: 30px;
-    position: absolute;
-    bottom: 45px;
-    width: 100%;
+    width: 20%;
     display: flex;
     justify-content: flex-end;
 }
 
 .slider-nav .slider-nav-item{
+    width: 35px;
+    height: 35px;
+    margin: unset;
+    cursor: pointer;
+    line-height: 31px;
+}
+
+.slider-nav .slider-nav-item > span{
     width: 15px;
     height: 15px;
     margin: 5px;
     border: 2px solid royalblue;
     background-color: royalblue;
     border-radius: 15px;
-    transition: all 0.8s ease;
+    transition: all 0.8s ease;  
 }
 
-.slider-nav .slider-nav-item:hover{
+
+.slider-nav .slider-nav-item:active > span{
+    background-color: #000;
+}
+
+.slider-nav .slider-nav-item:hover > span{
     background-color: #fff;
     border-color: royalblue !important;
 }
 
-.slider-nav .slider-nav-item:active{
-    background-color: #000;
-}
 
-#control1:checked ~ .control1{
+#control1:checked ~ .img-container{
     margin-left: 0;
 }
 
-#control2:checked ~ .control1{
+#control2:checked ~ .img-container{
     margin-left: -20%;
 }
 
-#control3:checked ~ .control1{
+#control3:checked ~ .img-container{
     margin-left: -40%;
 }
 
-#control4:checked ~ .control1{
+#control4:checked ~ .img-container{
     margin-left: -60%;
 }
 
-#control5:checked ~ .control1{
+#control5:checked ~ .img-container{
     margin-left: -80%;
 }
 
-#control1 ~ .control1 > p
-{
-    display: none;
-}
-
-#control1:checked ~ .img1 > p,
-#control2:checked ~ .img2 > p,
-#control3:checked ~ .img3 > p,
-#control4:checked ~ .img4 > p,
-#control5:checked ~ .img5 > p{
+#control1:checked ~ .nav-items > .img-description > .p1,
+#control2:checked ~ .nav-items > .img-description > .p2,
+#control3:checked ~ .nav-items > .img-description > .p3,
+#control4:checked ~ .nav-items > .img-description > .p4,
+#control5:checked ~ .nav-items > .img-description > .p5{
     display: block;
     animation-duration: 0.9s;
     animation-name: slidein;
@@ -141,32 +138,67 @@ P{
     }
   }
 
-#active label{ 
+#active label > span{ 
     cursor: pointer;
 	border-radius: 10px;
 	display: inline-block; 
 	background: royalblue;
 }
 
-#active label:hover{ 
-	background: #fff;
+#active label:hover > span{ 
+	background: #000;
     border-color: #fff;
     cursor: pointer;
 }
 
-#active label:active{
+#active label:active > span{
     background: rgb(138, 137, 137);
 }
 
-label{
-    
-}
-
-#control1:checked ~ #active label:nth-child(1),
-#control2:checked ~ #active label:nth-child(2),
-#control3:checked ~ #active label:nth-child(3),
-#control4:checked ~ #active label:nth-child(4),
-#control5:checked ~ #active label:nth-child(5){
+#control1:checked ~ .nav-items > #active label:nth-child(1) > span,
+#control2:checked ~ .nav-items > #active label:nth-child(2)> span,
+#control3:checked ~ .nav-items > #active label:nth-child(3)> span,
+#control4:checked ~ .nav-items > #active label:nth-child(4)> span,
+#control5:checked ~ .nav-items > #active label:nth-child(5)> span{
     background: #000;
     border-color: #fff;
+}
+
+
+@media (max-width:768px) {
+.wrapper {
+    margin: 10px;
+    }
+        
+.img-description {
+    width: 100%;
+    }
+    
+.nav-items {
+    display: flex;
+    max-width: 100vw;
+    margin: unset;
+    flex-direction: column;
+    }
+    
+.slider-nav {
+    width: 100%;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    }
+    
+.slider-items {
+    margin: unset;
+    display: flex;
+    flex-direction: column;
+}
+    
+p {
+    padding: 0;
+    }
+
+.img-container > img{
+    max-width: calc(100vw - 20px);
+    }
 }
