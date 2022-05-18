@@ -1,0 +1,241 @@
+*{
+    padding: 0;
+    margin: 0 auto;
+}
+
+body{
+    background: #000;
+}
+
+.wrapper{
+    margin: 40px 0;
+}
+
+.slider{
+    overflow: hidden;
+    max-width: 1200px;
+    height: auto;
+    display: flex;
+    border-radius: 10px;
+}
+
+.slider-items{
+    width: 500%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-items{
+    display: flex;
+    max-width: 20%;
+    margin: unset;
+    flex-direction: row-reverse;
+    padding: 30px 0 0 0;
+}
+
+.img-description{
+    width: 80%;
+}
+
+.img-container{
+    display: flex;
+    transition: all 0.8s ease;
+}
+
+.img-container > img{
+    max-width: 100vw;
+    border-radius: 10px;
+}
+
+input{
+    display: none;
+}
+
+.text{
+    display: flex;
+}
+
+p{
+    font-family: Arial;
+    font-weight: 400;
+    color: #fff;
+    font-size: 2em;
+    display: none;
+}
+
+.slider-nav{
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.slider-nav .slider-nav-item{
+    width: 35px;
+    height: 35px;
+    margin: unset;
+    cursor: pointer;
+    line-height: 31px;
+}
+
+.slider-nav .slider-nav-item > span{
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    border: 2px solid royalblue;
+    background-color: royalblue;
+    border-radius: 15px;
+    transition: all 0.8s ease;  
+}
+
+.slider-nav .slider-nav-item:active > span{
+    background-color: #000;
+}
+
+.slider-nav .slider-nav-item:hover > span{
+    background-color: #fff;
+    border-color: royalblue !important;
+}
+
+
+#control1:checked ~ .img-container{
+    margin-left: 0;
+}
+
+#control2:checked ~ .img-container{
+    margin-left: -20%;
+}
+
+#control3:checked ~ .img-container{
+    margin-left: -40%;
+}
+
+#control4:checked ~ .img-container{
+    margin-left: -60%;
+}
+
+#control5:checked ~ .img-container{
+    margin-left: -80%;
+}
+
+#control1:checked ~ .nav-items > .img-description > .p1,
+#control2:checked ~ .nav-items > .img-description > .p2,
+#control3:checked ~ .nav-items > .img-description > .p3,
+#control4:checked ~ .nav-items > .img-description > .p4,
+#control5:checked ~ .nav-items > .img-description > .p5{
+    display: block;
+    animation-duration: 0.9s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 50%;
+      width: 200%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+#active label > span{ 
+    cursor: pointer;
+	border-radius: 10px;
+	display: inline-block; 
+	background: royalblue;
+}
+
+#active label:hover > span{ 
+	background:#fff;
+    border-color: #fff;
+    cursor: pointer;
+}
+
+#active label:active > span{
+    background: rgb(138, 137, 137);
+}
+
+#control1:checked ~ .nav-items > #active label:nth-child(1) > span,
+#control2:checked ~ .nav-items > #active label:nth-child(2)> span,
+#control3:checked ~ .nav-items > #active label:nth-child(3)> span,
+#control4:checked ~ .nav-items > #active label:nth-child(4)> span,
+#control5:checked ~ .nav-items > #active label:nth-child(5)> span{
+    background: #000;
+    border-color: #fff;
+}
+
+@media (min-width:1024px) and (max-width:1439px) {
+.wrapper {
+    margin: 20px ;
+    }
+        
+p {
+    padding: 0;
+    }
+    
+.img-container > img{
+    max-width: calc(100vw - 40px);
+    }
+}
+
+@media (max-width:1023px) {
+.wrapper {
+    margin: 20px;
+    }
+        
+p {
+    padding: 0;
+    }
+    
+.img-container > img{
+    max-width: calc(100vw - 40px);
+    }
+}
+
+@media (max-width:767px) {
+.wrapper {
+    margin: 20px;
+    }
+            
+.img-description {
+    width: 100%;
+    }
+        
+.nav-items {
+    display: flex;
+    max-width: 100vw;
+    margin: unset;
+    flex-direction: column;
+    }
+        
+.slider-nav {
+    width: 100%;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    }
+        
+.slider-items {
+    margin: unset;
+    display: flex;
+    flex-direction: column;
+    }
+        
+p {
+    padding: 0;
+    font-size: 2em;
+    }
+    
+.img-container > img{
+    max-width: calc(100vw - 40px);
+    }
+}
+
+ @media (max-width:425px) {
+    p{
+        font-size: 1.35em;
+    }
+}
